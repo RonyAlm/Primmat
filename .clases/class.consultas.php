@@ -1,5 +1,5 @@
 <?php 
-	
+
 	class consulta{
 
 		public function select_tipo_usuario(){
@@ -56,6 +56,38 @@
 			}else{
 				$statement->execute();
 			}
+		}
+			public function mostrar_alumno(){
+
+			$filas = null;
+			$modelo = new conexion();
+			$conexion = $modelo->retornar_conexion();
+
+			$sql = "SELECT persona.id_persona, persona.apellido_persona, persona.nombre_persona, grado.desc_grado FROM persona, puntajes, grado WHERE puntajes.rela_persona=persona.id_persona and puntajes.rela_grado=grado.id_grado and puntajes.rela_grado=grado.id_grado";
+
+			$statement = $conexion->prepare($sql);
+			$statement->execute();
+
+			while($resultado = $statement->fetch()){
+				$filas[] = $resultado;
+			}
+			return $filas;
+		}	
+		public function select_tema(){
+
+			$filas = null;
+			$modelo = new conexion();
+			$conexion = $modelo->retornar_conexion();
+
+			$sql = "SELECT tema.desc_tema, grado.id_grado, puntajes.rela_persona FROM tema, grado, puntajes WHERE tema.rela_grado = grado.id_grado and rela_persona = 1 ";
+
+			$statement = $conexion->prepare($sql);
+			$statement->execute();
+
+			while($resultado = $statement->fetch()){
+	        $filas[] = $resultado;
+			}
+			return $filas;
 		}	
 
 	}

@@ -1,3 +1,9 @@
+ <?php
+ require_once ('.clases/class.conexion.php');
+  require_once ('.clases/class.consultas.php');
+  require_once ('.controladores/mostrar/mostrar_alumno.php');
+  require_once ('.controladores/select/select_tema.php');
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,8 +11,13 @@
             Primmat
         </title>
         <meta charset="utf-8">
-        <!--CSS-->
-        
+        <!- <!--************************************************************************************************-->
+                    <!-- DataTables CSS -->
+                    <link href="tabladinamica/js/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+                    <!-- DataTables Responsive CSS -->
+                    <link href="tabladinamica/js/datatables-responsive/dataTables.responsive.css" rel="stylesheet"> 
+                    <!--************************************************************************************************-->
+
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -54,74 +65,21 @@
               <div class="container">
                   <div class="row">
                       <div class="col-md-12 wow bounceIn">
-                          <h2 class="section-title">About Biking</h2>
-                          <p class="under-heading">Take A Look at some Features</p>
+                          <h4 class="section-title">Alumnos</h4>
+
                       </div>
                   </div>
               </div>
               
             <section>
              <div>
-                <table class="table tabla table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Larry</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <td>Larry</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <td>Larry</td> 
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                      <tr>
-                        <td>Larry</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <td>Larry</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <td>Larry</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <td>Larry</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <td>Larry</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                    </tbody>
-                  </table>
+              <?php
+              
+              Mostrar_alumno(); 
+
+              ?> 
+
+
               </div>
                
            </div>
@@ -165,5 +123,21 @@
         <script src="js/jquery.nicescroll.min.js"></script>
         <script src="js/wow.min.js"></script>
         <script>new WOW().init();</script>
+        <!--************************************************************************************************-->
+     <!-- js placed at the end of the document so the pages load faster -->
+    <script class="include" type="text/javascript" src="tabladinamica/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="tabladinamica/js/jquery.scrollTo.min.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="tabladinamica/js/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="tabladinamica/js/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="tabladinamica/js/datatables-responsive/dataTables.responsive.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+          responsive: true
+        });
+      });
+    </script>
+    <!--************************************************************************************************-->
     </body>
 </html>
