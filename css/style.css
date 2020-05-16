@@ -630,3 +630,48 @@ body{
     color: red;
     text-shadow: 1xp 1px 3px black;
 }
+.timeline-body-n a{
+       background-color: rgba(128, 128, 128, 0.644);
+       border:1px solid green;
+       color: white;
+}
+
+
+#ejercicios ul li{
+    display: block;
+    text-align: left;
+    
+    border: 1px solid #eeeeee;
+    padding: 1px;   
+}
+
+.section-about {
+    background-image: url(../images/fondopaisaje.jpg);
+}
+.section-title {
+    color: white;
+    font-family: snapITCFuenteP;
+    text-shadow: 1px 2px 2px rgb(14, 12, 12);
+}
+
+.under-heading {
+    font-size: 25px;
+    color: red;
+    font-family: snapITCFuenteP;
+    text-shadow: 1px 2px 2px rgb(14, 12, 12);
+}
+#CAJA{
+    
+      height: 600px;
+      background-color: rgba(252, 245, 245, 0.541);
+      border: 1px solid gray;
+     
+      margin: 20px;
+      
+     
+    
+      line-height: 230px;
+      color: #444;
+      box-shadow: 5px 5px 10px gray; /*sombra para cajas*/
+     
+}
