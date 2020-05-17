@@ -306,7 +306,7 @@ if(isset($_SESSION['usuario'])){
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <p class="footer-text">Todos los derechos reservado <span class="copyright"> &copy;</span>2020
+                        <p class="footer-text">Primmat <span class="copyright"> &copy;</span>2020
                         </p>
                     </div>
                     <div class="col-md-4">

@@ -233,7 +233,7 @@ if(isset($_SESSION['usuario'])){
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <p class="footer-text" >Rony Almiron <span class="copyright"> &copy;</span>2020</p>
+                        <p class="footer-text" >Primmat<span class="copyright"> &copy;</span>2020</p>
                     </div>
                     <div class="col-md-4">
                         <img src="images/logoPM1.png" class="logoimg" style="max-height: 100px; max-width: 80px;" />
