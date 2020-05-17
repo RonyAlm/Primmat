@@ -89,7 +89,7 @@ p {
     
     
 }
-.header-col input[type=text] {
+.header-col input[type=text], input[type=password] {
     background-color: transparent;
     color: #129CF3;
     font-weight: 400;
@@ -669,4 +669,138 @@ body{
 }
 .caja2{
     background-color: rgba(252, 245, 245, 0.541);
+}
+
+
+#mensaje-t {
+    font-size: 30px
+}
+#cuadro tr td {
+    border: 1px solid black;
+    
+}
+#cuadro{
+    margin-left: 29%;
+}
+#sub {
+    color: red;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#ejercicio-marco{
+    border: 1px solid black;
+}
+#ejercicio-marco p{
+       font-size: 30px;
+       color: rgb(0, 225, 255);
+       font-family: snapITCFuenteP;
+       text-shadow: 1px 2px 2px rgb(14, 12, 12);
+}
+#ejercicio-marco h1{
+    
+    color: red;
+    font-family: snapITCFuenteP;
+    text-shadow: 1px 2px 2px rgb(14, 12, 12);
+}
+.btn-a{
+    margin-top: 10px;
+}
+#ejercicio-contar{
+    height: 700px;
+    overflow: auto;
+    overflow-y: hidden;
+}
+#ejercicio-contar h1{
+
+    color: red;
+    font-family: snapITCFuenteP;
+    text-shadow: 1px 2px 2px rgb(14, 12, 12);
+    
+}
+#ejercicio-contar p{
+     font-size: 30px;
+    color: red;
+    font-family: snapITCFuenteP;
+    text-shadow: 1px 2px 2px rgb(14, 12, 12);
+    
+}
+
+#res{
+    width: 200px;
+    margin-left: 518px;
+    margin-top: 30px;
+
+}
+.btn-en{
+    width: 200px;
+    
+}
+#mat h2{
+    color: red;
+    font-family: snapITCFuenteP;
+    text-shadow: 1px 2px 2px rgb(14, 12, 12);
+}
+#img0 img{
+    width: 180px;
+    height: 180px;
+    margin-top: 30px;
+}
+#img1 img{
+    width: 150px;
+    height: 150px;
+    margin-top: 30px;
+}
+#img2 img{
+    width: 150px;
+    height: 150px;
+    margin-top: 30px;
+}
+#ejercicio-srmd{
+    height: 1050px;
+    overflow: auto;
+    overflow-y: hidden;
+}
+#ejercicio-srmd h1{
+
+    color: red;
+    font-family: snapITCFuenteP;
+    text-shadow: 1px 2px 2px rgb(14, 12, 12);
+    
+}
+#ejercicio-srmd p{
+     font-size: 30px;
+    color: red;
+    font-family: snapITCFuenteP;
+    text-shadow: 1px 2px 2px rgb(14, 12, 12);
+    
+}
+#signo {
+    width: 40px;
+    margin: 40px;
+    text-align: center;
+    
+}
+#ejercicio-comparar{
+    height: 300px;
+    overflow: auto;
+    overflow-y: hidden;
+}
+#ejercicio-comparar h1{
+
+    color: red;
+    font-family: snapITCFuenteP;
+    text-shadow: 1px 2px 2px rgb(14, 12, 12);
+    
+}
+#ejercicio-comparar p{
+     font-size: 30px;
+    color: red;
+    font-family: snapITCFuenteP;
+    text-shadow: 1px 2px 2px rgb(14, 12, 12);
+    
+}
+
+.step_no{
+    background-color: red !important;
 }

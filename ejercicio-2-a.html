@@ -63,8 +63,8 @@
               <div class="container">
                   <div class="row">
                       <div class="col-md-12 wow bounceIn">
-                          <h2 class="section-title">1- Números y contar</h2>
-                          <p class="under-heading">A. Aprender a contar. Hasta 10</p>
+                          <h2 class="section-title">2- Sumar</h2>
+                          <p class="under-heading">A. Aprender a Sumar</p>
                       </div>
                   </div>
               </div>
@@ -111,7 +111,7 @@
                                     <span class="step_no">1</span>
                                     <span class="step_descr">
                                                       Ejercicio 1<br />
-                                                      <small>Contar hasta 10</small>
+                                                      <small>Sumar</small>
                                                   </span>
                                   </a>
                                 </li>
@@ -147,11 +147,14 @@
                                
           
                                   <!--poner el ejercicios aca-->
-                                  <section id="ejercicio-contar">
-                                    <h1 class="StepTitle">¿Cuántos globos hay?</h1>
+                                  <section id="ejercicio-srmd">
+                                    <h1 class="StepTitle">Sumar los globos</h1>
                                     
-                                    <div id="img0"></div>
                                     
+                                    <div id="img1"></div>
+                                    <p style="font-size: 44px;">+</p>
+                                    <div id="img2"></div>
+
                                     <input type="text" id="res" placeholder="Escriba la cantidad.." class="form-control input-lg"> 
 
                                     <button onclick="enviar()" id="enviar" class="btn btn-success btn-en btn-a btn-re">Enviar</button>
@@ -243,36 +246,48 @@
         <!-- Custom Theme Scripts -->
         <script src="js/JS/custom.min.js"></script>
         
-         <!--Contar hasta 10-->
-                    <script>
+         <!--Sumar-->
+                   
+         <script>
 
-                        do {
-                            numero = Math.floor(Math.random() * 10);
-                        } while (numero < 1);
-                        
-                        for (i = 0; i < numero; i++) {
-                            var x = document.createElement ("IMG");
-                            x.setAttribute ("src", "images/globo.svg");
-                            document.getElementById("img0").appendChild(x);
-                        }
-                        
-                        
-                        function enviar() {
-                            if (numero == document.getElementById("res").value) {
-                            document.getElementById("mensaje").innerHTML = "Respuesta Correcta";
-                            document.getElementById("mensaje").style.color = "green";
-                            document.getElementById("enviar").disabled = true;
-                            document.getElementById("res").disabled = true;
-                            } else {
-                            document.getElementById("mensaje").innerHTML = "Respuesta Incorrecta";
-                            document.getElementById("mensaje").style.color = "red";
-                            document.getElementById("enviar").disabled = true;
-                            document.getElementById("res").disabled = true;
-                            }
-                        }
-                    </script>
-
-         <!--Contar hasta 10-->
+           do {
+                num1 = Math.floor(Math.random() * 10);
+            } while (num1 < 1);
+                
+            do {
+                num2 = Math.floor(Math.random() * 10);
+            } while (num2 < 1)
+           
+         
+            var respuesta = num1 + num2;
+            
+            for (i = 0; i < num1; i++) {
+                var x = document.createElement ("IMG");
+                x.setAttribute ("src", "images/globo.svg");
+                document.getElementById("img1").appendChild(x);
+            }
+            for (i = 0; i < num2; i++) {
+                var x = document.createElement ("IMG");
+                x.setAttribute ("src", "images/globo.svg");
+                document.getElementById("img2").appendChild(x);
+            }
+            
+            
+            function enviar() {
+                if (respuesta == document.getElementById("res").value) {
+                   document.getElementById("mensaje").innerHTML = "Respuesta Correcta";
+                   document.getElementById("mensaje").style.color = "green";
+                   document.getElementById("enviar").disabled = true;
+                   document.getElementById("res").disabled = true;
+                } else {
+                   document.getElementById("mensaje").innerHTML = "Respuesta Incorrecta";
+                   document.getElementById("mensaje").style.color = "red";
+                   ocument.getElementById("enviar").disabled = true;
+                   document.getElementById("res").disabled = true;
+                }
+            }
+        </script>
+         <!--Sumar-->
       
      
 
