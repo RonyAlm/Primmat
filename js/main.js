@@ -14,10 +14,10 @@ jQuery(document).on('submit','#formLg',function(event){
         console.log(respuesta.tipo_usuario);
         if (!respuesta.error) {
 
-            if (respuesta.tipo_usuario == '5') {
-                location.href = '.vistas/maestro.php';
-            }else if (respuesta.tipo_usuario == '6') {
-                location.href = '.vistas/alumno.php';
+            if (respuesta.tipo_usuario == '1') {
+                location.href = '.vistas/niveles.php';
+            }else if (respuesta.tipo_usuario == '2') {
+                location.href = '.vistas/niveles.php';
             }
 
         }else {
@@ -44,20 +44,3 @@ jQuery(document).on('submit','#formLg',function(event){
 
 });
 
-function siguiente() {
-    
-    document.getElementById("seccion_usuario").style.display = "none";
-    document.getElementById("seccion_persona").style.display="block";
-    document.getElementById("siguiente").style.display = "none";
-    document.getElementById("atras").style.display="block";
-
-}
-
-function atras() {
-    
-    document.getElementById("seccion_usuario").style.display = "block";
-    document.getElementById("seccion_persona").style.display="none";
-    document.getElementById("atras").style.display="none";
-    document.getElementById("siguiente").style.display="block";
-
-}

@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+
+$mensaje = null;
+
+if(isset($_SESSION['usuario'])){
+    if($_SESSION['usuario']['rela_tipo_usuario']=="2"){
+        $mensaje = "Maestro";
+    }else{
+        $mensaje = "Alumno";
+    }
+}    
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -8,10 +24,10 @@
     <meta charset="utf-8">
     <!--CSS-->
 
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
@@ -33,29 +49,42 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <!-- small size logo -->
-                        <img src="images/logoPM.png" alt="logo" style="max-width: 278px; max-height: 218px;">
+                        <img src="../images/logoPM.png" alt="logo" style="max-width: 150px; max-height: 150px;">
                     </a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="loso-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="index.php" class="nav-item">INICIO</a></li>
-                            <li><a href="index.php" class="nav-item">ACERCA DE NOSOTROS</a></li>
-                            <li><a href="niveles.html" class="nav-item">NIVELES</a></li>
-                            <li><a href="index.php" class="nav-item">CONTACTO</a></li>
-                            <li><a href="index.php" class="nav-item">INICIAR SESION</a></li>
-                        </ul>
+                        
+                        <li><a href="niveles.php" class="nav-item">INICIO</a></li>
+                        <?php
+                            if (isset($_SESSION['usuario'])) {
+                                if ($_SESSION['usuario']['rela_tipo_usuario']=="1") {
+                                    echo '<li><a href="#" class="nav-item">MI HISTORIAL</a></li>';
+                                    echo '<li><a href="#" class="nav-item">EVALUACIONES</a></li>';
+                                }   
+                            }      
+                        ?>
+                        <?php
+                            if (isset($_SESSION['usuario'])) {
+                                if ($_SESSION['usuario']['rela_tipo_usuario']=="2") {
+                                    echo '<li><a href="../miAlumno.php" class="nav-item">MIS ALUMNOS</a></li>';
+                                    echo '<li><a href="#" class="nav-item">CREAR EVALUACIÓN</a></li>';
+                                }   
+                            }      
+                        ?>
+                        <li><a href="../salir.php" class="nav-item">CERRAR SESIÓN</a></li>
+                        
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
     </header>
 
-    <section class="why-us" id="timeline">
+ <section class="why-us" id="timeline">
         <div class="section-timeline fondo-timeline">
             <div class="container" id="mat">
                 <h2 class="heading"><span class="bold-green"> 1° Año </span></h2>
@@ -71,8 +100,8 @@
                                 <div class="timeline-body" id="ejercicios">
                                     
                                         <ul>
-                                            <li><a href="ejercicio-1-a.html">a. Aprender a contar. Contar globo </a></li>
-                                            <li><a href="ejercicio-1-b.html">b. Contar Marcos</a></li>
+                                            <li><a href="../ejercicio-1-a.php">a. Aprender a contar. Contar globo </a></li>
+                                            <li><a href="../ejercicio-1-b.php">b. Contar Marcos</a></li>
                                           
                                         </ul>
                                 </div>
@@ -92,7 +121,7 @@
                             <div class="timeline-body" id="ejercicios">
                                 
                                     <ul>
-                                        <li><a href="ejercicio-2-a.html">a. Aprender a Sumar. Sumar</a></li>
+                                        <li><a href="../ejercicio-2-a.php">a. Aprender a Sumar. Sumar</a></li>
                                         
                                       
                                     </ul>
@@ -112,7 +141,7 @@
                             <div class="timeline-body" id="ejercicios">
                                 
                                     <ul>
-                                        <li><a href="ejercicio-3-a.html">a. Aprender a restar. Restar</a></li>
+                                        <li><a href="../ejercicio-3-a.php">a. Aprender a restar. Restar</a></li>
                                         
                                       
                                     </ul>
@@ -131,7 +160,7 @@
                             <div class="timeline-body" id="ejercicios">
                                 
                                     <ul>
-                                        <li><a href="ejercicio-4-a.html">a. Aprender a Multiplicar.</a></li>
+                                        <li><a href="../ejercicio-4-a.php">a. Aprender a Multiplicar.</a></li>
                                         
                                     </ul>
                             </div>
@@ -149,7 +178,7 @@
                             <div class="timeline-body" id="ejercicios">
                                 
                                     <ul>
-                                        <li><a href="ejercicio-5-a.html">a. Aprender a Dividir</a></li>
+                                        <li><a href="../ejercicio-5-a.php">a. Aprender a Dividir</a></li>
                                         
                                     </ul>
                             </div>
@@ -167,7 +196,7 @@
                             <div class="timeline-body" id="ejercicios">
                                 
                                     <ul>
-                                        <li><a href="ejercicio-6-a.html">a. Aprender a Comparar números.</a></li>
+                                        <li><a href="../ejercicio-6-a.php">a. Aprender a Comparar números.</a></li>
                                         
                                       
                                     </ul>
@@ -198,7 +227,7 @@
                         <p class="footer-text">Rony Almiron <span class="copyright"> &copy;</span>2020</p>
                     </div>
                     <div class="col-md-4">
-                        <img src="images/logoPM1.png" class="logoimg" style="max-height: 100px; max-width: 80px;" />
+                        <img src="../images/logoPM1.png" class="logoimg" style="max-height: 100px; max-width: 80px;" />
                     </div>
                     <div class="col-md-4">
                         <p class="footer-text">Educación y TIC</p>
@@ -211,13 +240,12 @@
 
 
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.counterup.min.js"></script>
+    <script src="../js/jquery.waypoints.min.js"></script>
+    <script src="../js/jquery.nicescroll.min.js"></script>
+    <script src="../js/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>

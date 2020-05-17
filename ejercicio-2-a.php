@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+
+$mensaje = null;
+
+if(isset($_SESSION['usuario'])){
+    if($_SESSION['usuario']['rela_tipo_usuario']=="2"){
+        $mensaje = "Maestro";
+    }else{
+        $mensaje = "Alumno";
+    }
+}    
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,18 +55,31 @@
                                 </button>
                                 <a class="navbar-brand" href="index.html">
                                     <!-- small size logo -->
-                                    <img src="images/logoPM.png" alt="logo" style="max-width: 278px; max-height: 218px;">
+                                    <img src="images/logoPM.png" alt="logo" style="max-width: 150px; max-height: 150px;">
                                 </a>
                             </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="loso-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="index.php" class="nav-item">INICIO</a></li>
-                                <li><a href="index.php" class="nav-item">ACERCA DE NOSOTROS</a></li>
-                                <li><a href="niveles.html" class="nav-item">NIVELES</a></li>
-                                <li><a href="index.php" class="nav-item">CONTACTO</a></li>
-                                <li><a href="index.php" class="nav-item">INICIAR SESION</a></li>
+                                <li><a href=".vistas/niveles.php" class="nav-item">INICIO</a></li>
+                                    <?php
+                                        if (isset($_SESSION['usuario'])) {
+                                            if ($_SESSION['usuario']['rela_tipo_usuario']=="1") {
+                                                echo '<li><a href="#" class="nav-item">MI HISTORIAL</a></li>';
+                                                echo '<li><a href="#" class="nav-item">EVALUACIONES</a></li>';
+                                            }   
+                                        }      
+                                    ?>
+                                    <?php
+                                        if (isset($_SESSION['usuario'])) {
+                                            if ($_SESSION['usuario']['rela_tipo_usuario']=="2") {
+                                                echo '<li><a href="../miAlumno.php" class="nav-item">MIS ALUMNOS</a></li>';
+                                                echo '<li><a href="#" class="nav-item">CREAR EVALUACIÓN</a></li>';
+                                            }   
+                                        }      
+                                    ?>
+                                <li><a href="salir.php" class="nav-item">CERRAR SESIÓN</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->
@@ -63,8 +92,8 @@
               <div class="container">
                   <div class="row">
                       <div class="col-md-12 wow bounceIn">
-                          <h2 class="section-title">3- Restar</h2>
-                          <p class="under-heading">A. Aprender a Restar</p>
+                          <h2 class="section-title">2- Sumar</h2>
+                          <p class="under-heading">A. Aprender a Sumar</p>
                       </div>
                   </div>
               </div>
@@ -111,7 +140,7 @@
                                     <span class="step_no">1</span>
                                     <span class="step_descr">
                                                       Ejercicio 1<br />
-                                                      <small>Restar</small>
+                                                      <small>Sumar</small>
                                                   </span>
                                   </a>
                                 </li>
@@ -148,11 +177,12 @@
           
                                   <!--poner el ejercicios aca-->
                                   <section id="ejercicio-srmd">
-                                    <h1 class="StepTitle">Restar los globos</h1>
-
-                                        <div id="img1"></div>
-                                        <p style="font-size: 44px;">-</p>
-                                        <div id="img2"></div>
+                                    <h1 class="StepTitle">Sumar los globos</h1>
+                                    
+                                    
+                                    <div id="img1"></div>
+                                    <p style="font-size: 44px;">+</p>
+                                    <div id="img2"></div>
 
                                     <input type="text" id="res" placeholder="Escriba la cantidad.." class="form-control input-lg"> 
 
@@ -224,7 +254,6 @@
        
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
         <script src="js/jquery.counterup.min.js"></script>
         <script src="js/jquery.waypoints.min.js"></script>
         <script src="js/jquery.nicescroll.min.js"></script>
@@ -245,48 +274,48 @@
         <!-- Custom Theme Scripts -->
         <script src="js/JS/custom.min.js"></script>
         
-         <!--Restar-->
+         <!--Sumar-->
                    
-    <script>
+         <script>
 
-        do {
-            num1 = Math.floor(Math.random() * 10);
-        } while (num1 < 1);
-            
-        do {
-            num2 = Math.floor(Math.random() * 10);
-        } while (num2 < 1 || num2 > num1)
-
-        var respuesta = num1 - num2;
-        
-        for (i = 0; i < num1; i++) {
-            var x = document.createElement ("IMG");
-            x.setAttribute ("src", "images/globo.svg");
-            document.getElementById("img1").appendChild(x);
-        }
-        for (i = 0; i < num2; i++) {
-            var x = document.createElement ("IMG");
-            x.setAttribute ("src", "images/globo.svg");
-            document.getElementById("img2").appendChild(x);
-        }
-        
-        
-        function enviar() {
-            if (respuesta == document.getElementById("res").value) {
-               document.getElementById("mensaje").innerHTML = "Respuesta Correcta";
-               document.getElementById("mensaje").style.color = "green";
-               document.getElementById("enviar").disabled = true;
-               document.getElementById("res").disabled = true;
-            } else {
-               document.getElementById("mensaje").innerHTML = "Respuesta Incorrecta";
-               document.getElementById("mensaje").style.color = "red";
-               document.getElementById("enviar").disabled = true;
-               document.getElementById("res").disabled = true;
-            }
-        }
-    </script>
+           do {
+                num1 = Math.floor(Math.random() * 10);
+            } while (num1 < 1);
+                
+            do {
+                num2 = Math.floor(Math.random() * 10);
+            } while (num2 < 1)
+           
          
-         <!--Restar-->
+            var respuesta = num1 + num2;
+            
+            for (i = 0; i < num1; i++) {
+                var x = document.createElement ("IMG");
+                x.setAttribute ("src", "images/globo.svg");
+                document.getElementById("img1").appendChild(x);
+            }
+            for (i = 0; i < num2; i++) {
+                var x = document.createElement ("IMG");
+                x.setAttribute ("src", "images/globo.svg");
+                document.getElementById("img2").appendChild(x);
+            }
+            
+            
+            function enviar() {
+                if (respuesta == document.getElementById("res").value) {
+                   document.getElementById("mensaje").innerHTML = "Respuesta Correcta";
+                   document.getElementById("mensaje").style.color = "green";
+                   document.getElementById("enviar").disabled = true;
+                   document.getElementById("res").disabled = true;
+                } else {
+                   document.getElementById("mensaje").innerHTML = "Respuesta Incorrecta";
+                   document.getElementById("mensaje").style.color = "red";
+                   ocument.getElementById("enviar").disabled = true;
+                   document.getElementById("res").disabled = true;
+                }
+            }
+        </script>
+         <!--Sumar-->
       
      
 

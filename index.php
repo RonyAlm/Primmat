@@ -4,11 +4,10 @@ session_start();
 
 if(isset($_SESSION['usuario'])){
 
-    if($_SESSION['usuario']['rela_tipo_usuario']=="5"){
-        header('Location: .vistas/maestro.php');       
-    }else if($_SESSION['usuario']['rela_tipo_usuario']=="6"){
-        header('Location: .vistas/alumno.php');
+    if($_SESSION['usuario']['rela_tipo_usuario']=="1" || $_SESSION['usuario']['rela_tipo_usuario']=="2"){
+        header('Location: .vistas/niveles.php');       
     }
+
 }
 
     require_once ('.clases/class.conexion.php');
@@ -35,7 +34,7 @@ if(isset($_SESSION['usuario'])){
 
     </head>
 
-    <body>
+    <body onload="recargar()">
        <header class="header" id="HOME">
 
             <!-- Navigation -->
@@ -65,7 +64,6 @@ if(isset($_SESSION['usuario'])){
                   <ul class="nav navbar-nav navbar-right">
                         <li><a href="#HOME" class="nav-item">INICIO</a></li>
                         <li><a href="#about" class="nav-item">ACERCA DE NOSOTROS</a></li>
-                        <li><a href="niveles.html" class="nav-item">NIVE</a></li>
                         <li><a href="#contact-us" class="nav-item">CONTACTO</a></li>
                   </ul>  
                 </div><!-- /.navbar-collapse -->
@@ -110,7 +108,7 @@ if(isset($_SESSION['usuario'])){
                                  <input type="text" placeholder="Usuario" class="form-control input-3x" pattern="[A-Za-z0-9-_#*]{1,15}" name="usuariolg" required>
                              </div>
                              <div class="form-group">
-                                 <input type="text" placeholder="Contraseña" class="form-control input-3x" pattern="[A-Za-z0-9-_#*]{1,15}" name="passlg" required>
+                                 <input type="password" placeholder="Contraseña" class="form-control input-3x" pattern="[A-Za-z0-9-_#*]{1,15}" name="passlg" required>
                              </div>
                              <div class="form-group">
                                  <button type="submit" class="btn btn-primary btn-Ingresar btn-3x">Ingresar<span> <i class="fa fa-angle-double-right"></i> </span></button>
@@ -373,6 +371,10 @@ if(isset($_SESSION['usuario'])){
                     $('.agregado').slideUp('slow');
                 },10000);
 
+            }
+
+            function recargar(){
+                location.href = '#HOME';
             }
 
         </script>

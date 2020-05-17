@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+
+$mensaje = null;
+
+if(isset($_SESSION['usuario'])){
+    if($_SESSION['usuario']['rela_tipo_usuario']=="2"){
+        $mensaje = "Maestro";
+    }else{
+        $mensaje = "Alumno";
+    }
+}    
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,18 +55,31 @@
                                 </button>
                                 <a class="navbar-brand" href="index.html">
                                     <!-- small size logo -->
-                                    <img src="images/logoPM.png" alt="logo" style="max-width: 278px; max-height: 218px;">
+                                    <img src="images/logoPM.png" alt="logo" style="max-width: 150px; max-height: 150px;">
                                 </a>
                             </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="loso-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="index.php" class="nav-item">INICIO</a></li>
-                                <li><a href="index.php" class="nav-item">ACERCA DE NOSOTROS</a></li>
-                                <li><a href="niveles.html" class="nav-item">NIVELES</a></li>
-                                <li><a href="index.php" class="nav-item">CONTACTO</a></li>
-                                <li><a href="index.php" class="nav-item">INICIAR SESION</a></li>
+                                <li><a href=".vistas/niveles.php" class="nav-item">INICIO</a></li>
+                                    <?php
+                                        if (isset($_SESSION['usuario'])) {
+                                            if ($_SESSION['usuario']['rela_tipo_usuario']=="1") {
+                                                echo '<li><a href="#" class="nav-item">MI HISTORIAL</a></li>';
+                                                echo '<li><a href="#" class="nav-item">EVALUACIONES</a></li>';
+                                            }   
+                                        }      
+                                    ?>
+                                    <?php
+                                        if (isset($_SESSION['usuario'])) {
+                                            if ($_SESSION['usuario']['rela_tipo_usuario']=="2") {
+                                                echo '<li><a href="../miAlumno.php" class="nav-item">MIS ALUMNOS</a></li>';
+                                                echo '<li><a href="#" class="nav-item">CREAR EVALUACIÓN</a></li>';
+                                            }   
+                                        }      
+                                    ?>
+                                <li><a href="salir.php" class="nav-item">CERRAR SESIÓN</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->
@@ -224,7 +253,6 @@
        
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
         <script src="js/jquery.counterup.min.js"></script>
         <script src="js/jquery.waypoints.min.js"></script>
         <script src="js/jquery.nicescroll.min.js"></script>

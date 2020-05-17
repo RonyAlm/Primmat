@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+
+$mensaje = null;
+
+if(isset($_SESSION['usuario'])){
+    if($_SESSION['usuario']['rela_tipo_usuario']=="2"){
+        $mensaje = "Maestro";
+    }else{
+        $mensaje = "Alumno";
+    }
+}    
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,18 +55,31 @@
                                 </button>
                                 <a class="navbar-brand" href="index.html">
                                     <!-- small size logo -->
-                                    <img src="images/logoPM.png" alt="logo" style="max-width: 278px; max-height: 218px;">
+                                    <img src="images/logoPM.png" alt="logo" style="max-width: 150px; max-height: 150px;">
                                 </a>
                             </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="loso-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="index.php" class="nav-item">INICIO</a></li>
-                                <li><a href="index.php" class="nav-item">ACERCA DE NOSOTROS</a></li>
-                                <li><a href="niveles.html" class="nav-item">NIVELES</a></li>
-                                <li><a href="index.php" class="nav-item">CONTACTO</a></li>
-                                <li><a href="index.php" class="nav-item">INICIAR SESION</a></li>
+                                <li><a href=".vistas/niveles.php" class="nav-item">INICIO</a></li>
+                                    <?php
+                                        if (isset($_SESSION['usuario'])) {
+                                            if ($_SESSION['usuario']['rela_tipo_usuario']=="1") {
+                                                echo '<li><a href="#" class="nav-item">MI HISTORIAL</a></li>';
+                                                echo '<li><a href="#" class="nav-item">EVALUACIONES</a></li>';
+                                            }   
+                                        }      
+                                    ?>
+                                    <?php
+                                        if (isset($_SESSION['usuario'])) {
+                                            if ($_SESSION['usuario']['rela_tipo_usuario']=="2") {
+                                                echo '<li><a href="../miAlumno.php" class="nav-item">MIS ALUMNOS</a></li>';
+                                                echo '<li><a href="#" class="nav-item">CREAR EVALUACIÓN</a></li>';
+                                            }   
+                                        }      
+                                    ?>
+                                <li><a href="salir.php" class="nav-item">CERRAR SESIÓN</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->
@@ -64,7 +93,7 @@
                   <div class="row">
                       <div class="col-md-12 wow bounceIn">
                           <h2 class="section-title">1- Números y contar</h2>
-                          <p class="under-heading">B. Aprender a contar. Contar Marcos</p>
+                          <p class="under-heading">A. Aprender a contar. Hasta 10</p>
                       </div>
                   </div>
               </div>
@@ -111,7 +140,7 @@
                                     <span class="step_no">1</span>
                                     <span class="step_descr">
                                                       Ejercicio 1<br />
-                                                      <small>Descripcion</small>
+                                                      <small>Contar hasta 10</small>
                                                   </span>
                                   </a>
                                 </li>
@@ -147,64 +176,24 @@
                                
           
                                   <!--poner el ejercicios aca-->
-                                  <section id="ejercicio-marco">
-                                    <h1 class="StepTitle">Contar en el Marco</h1>
-                                    <p>Coloca <span id="sub"></span> puntos en el marco <span id="mensaje-t"></span></p>
-                                    <table id="cuadro">
-                                        <tr>
-                                            <td><img id="1" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="2" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="3" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="4" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="5" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><img id="6" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="7" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="8" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="9" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="10" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                        </tr>
-                                    </table>
-                                    <button onclick="agregar()" id="agre" class="btn btn-success btn-a btn-re">Agregar<span> <i
-                                        class="fa fa-angle-double-right"></i> </span></button>
-                                    <button onclick="quitar()" id="quit" class="btn btn-default btn-a btn-re">Quitar<span> <i
-                                            class="fa "></i> </span></button>
-                                    <button onclick="enviar()" id="enviar" class="btn btn-primary btn-a btn-re">Enviar<span> <i
-                                             class="fa"></i> </span></button> 
+                                  <section id="ejercicio-contar">
+                                    <h1 class="StepTitle">¿Cuántos globos hay?</h1>
                                     
+                                    <div id="img0"></div>
+                                    
+                                    <input type="text" id="res" placeholder="Escriba la cantidad.." class="form-control input-lg"> 
+
+                                    <button onclick="enviar()" id="enviar" class="btn btn-success btn-en btn-a btn-re">Enviar</button>
+                                    <p id="mensaje"></p>
                               
-          
+                                   </section>
                               </div>
                               <div id="step-2">
                                 <h2 class="StepTitle">Ejercicio 2</h2>
 
                                  <!--poner el ejercicios aca-->
                                  <section id="ejercicio-marco">
-                                    <h1 class="StepTitle">Contar en el Marco</h1>
-                                    <p>Coloca <span id="sub"></span> puntos en el marco <span id="mensaje-t"></span></p>
-                                    <table id="cuadro">
-                                        <tr>
-                                            <td><img id="1" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="2" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="3" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="4" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="5" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><img id="6" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="7" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="8" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="9" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                            <td><img id="10" src="images/pelota-roja.png" height="100" width="100" style="visibility: hidden;"></td>
-                                        </tr>
-                                    </table>
-                                    <button onclick="agregar()" id="agre" class="btn btn-success btn-a btn-re">Agregar<span> <i
-                                        class="fa fa-angle-double-right"></i> </span></button>
-                                    <button onclick="quitar()" id="quit" class="btn btn-default btn-a btn-re">Quitar<span> <i
-                                            class="fa "></i> </span></button>
-                                    <button onclick="enviar()" id="enviar" class="btn btn-primary btn-a btn-re">Enviar<span> <i
-                                             class="fa"></i> </span></button>   
+                                    
                                 </section>
                                     
 
@@ -262,7 +251,6 @@
        
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
         <script src="js/jquery.counterup.min.js"></script>
         <script src="js/jquery.waypoints.min.js"></script>
         <script src="js/jquery.nicescroll.min.js"></script>
@@ -292,12 +280,12 @@
                         
                         for (i = 0; i < numero; i++) {
                             var x = document.createElement ("IMG");
-                            x.setAttribute ("src", "globo.svg");
-                            document.getElementById("img1").appendChild(x);
+                            x.setAttribute ("src", "images/globo.svg");
+                            document.getElementById("img0").appendChild(x);
                         }
                         
                         
-                        function enviar-c() {
+                        function enviar() {
                             if (numero == document.getElementById("res").value) {
                             document.getElementById("mensaje").innerHTML = "Respuesta Correcta";
                             document.getElementById("mensaje").style.color = "green";
@@ -312,54 +300,9 @@
                         }
                     </script>
 
-         <!--Contar Marco-->
+         <!--Contar hasta 10-->
       
-      <script>
-
-            var numero_aleatorio = Math.round(Math.random() * 10);
-            var respuesta = 0;
-            
-            document.getElementById("sub").innerHTML = numero_aleatorio;
-            document.getElementById("quit").disabled = true;
-          
-            function agregar() {
-                respuesta = respuesta + 1;
-                document.getElementById(respuesta).style.visibility = "visible";
-                if (respuesta >= 10) {
-                    document.getElementById("agre").disabled = true;
-                }
-                if (respuesta > 0) {
-                    document.getElementById("quit").disabled = false;
-                }
-            }
-    
-            function quitar() {
-                document.getElementById(respuesta).style.visibility = "hidden";
-                respuesta = respuesta - 1;
-                if (respuesta <= 0) {
-                    document.getElementById("quit").disabled = true;
-                }
-                if (respuesta < 10) {
-                    document.getElementById("agre").disabled = false;
-                }
-            }
-    
-            function enviar() {
-                if (respuesta == numero_aleatorio) {
-                   document.getElementById("mensaje-t").innerHTML = "Respuesta Correcta";
-                   document.getElementById("mensaje-t").style.color = "green";
-                   document.getElementById("quit").disabled = true;
-                   document.getElementById("agre").disabled = true;
-                   document.getElementById("enviar").disabled = true;
-                } else {
-                   document.getElementById("mensaje-t").innerHTML = "Respuesta Incorrecta";
-                   document.getElementById("mensaje-t").style.color = "red";
-                   document.getElementById("quit").disabled = true;
-                   document.getElementById("agre").disabled = true;
-                   document.getElementById("enviar").disabled = true;
-                }
-            }
-        </script>
+     
 
     </body>
 </html>

@@ -1,9 +1,10 @@
  <?php
- require_once ('.clases/class.conexion.php');
-  require_once ('.clases/class.consultas.php');
-  require_once ('.controladores/mostrar/mostrar_alumno.php');
-  require_once ('.controladores/select/select_tema.php');
+    require_once ('.clases/class.conexion.php');
+    require_once ('.clases/class.consultas.php');
+    require_once ('.controladores/mostrar/mostrar_alumno.php');
+    require_once ('.controladores/select/select_tema.php');
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,13 +12,12 @@
             Primmat
         </title>
         <meta charset="utf-8">
-        <!- <!--************************************************************************************************-->
-                    <!-- DataTables CSS -->
-                    <link href="tabladinamica/js/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-                    <!-- DataTables Responsive CSS -->
-                    <link href="tabladinamica/js/datatables-responsive/dataTables.responsive.css" rel="stylesheet"> 
-                    <!--************************************************************************************************-->
-
+        <!--************************************************************************************************-->
+        <!-- DataTables CSS -->
+        <link href="tabladinamica/js/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+        <!-- DataTables Responsive CSS -->
+        <link href="tabladinamica/js/datatables-responsive/dataTables.responsive.css" rel="stylesheet"> 
+        <!--************************************************************************************************-->
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -43,16 +43,17 @@
                                 </button>
                                 <a class="navbar-brand" href="index.html">
                                     <!-- small size logo -->
-                                    <img src="images/logoPM.png" alt="logo" style="max-width: 278px; max-height: 218px;">
+                                    <img src="images/logoPM.png" alt="logo" style="max-width: 150px; max-height: 150px;">
                                 </a>
                             </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="loso-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="profesor.html" class="nav-item">INICIO</a></li>
-                                    <li><a href="#CLASE" class="nav-item">MIS ALUMNOS</a></li>
-                                    <li><a href="#" class="nav-item">CERRAR SESIÓN</a></li>
+                                    <li><a href=".vistas/niveles.php" class="nav-item">INICIO</a></li>
+                                    <li><a href="#" class="nav-item">MIS ALUMNOS</a></li>
+                                    <li><a href="#" class="nav-item">CREAR EVALUACIÓN</a></li>
+                                    <li><a href="salir.php" class="nav-item">CERRAR SESIÓN</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->
@@ -117,27 +118,26 @@
        
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
         <script src="js/jquery.counterup.min.js"></script>
         <script src="js/jquery.waypoints.min.js"></script>
         <script src="js/jquery.nicescroll.min.js"></script>
         <script src="js/wow.min.js"></script>
         <script>new WOW().init();</script>
         <!--************************************************************************************************-->
-     <!-- js placed at the end of the document so the pages load faster -->
-    <script class="include" type="text/javascript" src="tabladinamica/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="tabladinamica/js/jquery.scrollTo.min.js"></script>
-    <!-- DataTables JavaScript -->
-    <script src="tabladinamica/js/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="tabladinamica/js/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="tabladinamica/js/datatables-responsive/dataTables.responsive.js"></script>
-    <script>
-      $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-          responsive: true
-        });
-      });
-    </script>
-    <!--************************************************************************************************-->
-    </body>
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script class="include" type="text/javascript" src="tabladinamica/js/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="tabladinamica/js/jquery.scrollTo.min.js"></script>
+        <!-- DataTables JavaScript -->
+        <script src="tabladinamica/js/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="tabladinamica/js/datatables-plugins/dataTables.bootstrap.min.js"></script>
+        <script src="tabladinamica/js/datatables-responsive/dataTables.responsive.js"></script>
+        <script>
+            $(document).ready(function() {
+            $('#dataTables-example').DataTable({
+            responsive: true
+            });
+            });
+        </script>
+        <!--************************************************************************************************-->
+        </body>
 </html>
