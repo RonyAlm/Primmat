@@ -79,8 +79,6 @@
               Mostrar_alumno(); 
 
               ?> 
-
-
               </div>
                
            </div>
@@ -89,9 +87,7 @@
            
         </section> 
     
-       <!--end of about section-->
-       <!--Performers Section-->
-      
+       
         
         
         

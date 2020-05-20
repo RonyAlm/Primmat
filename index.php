@@ -31,7 +31,7 @@ if(isset($_SESSION['usuario'])){
         <link rel="stylesheet" type="text/css" href="css/animate.css">
         <link rel="stylesheet" type="text/css" href="css/mensaje.css">
         <!--Google Fonts-->
-
+        <link rel="shortcut icon" href="images/logoPM1.png" type="image/x-icon">
     </head>
 
     <body onload="recargar()">
@@ -52,7 +52,7 @@ if(isset($_SESSION['usuario'])){
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="index.html">
+                      <a class="navbar-brand" href="index.php">
                         <!-- small size logo -->
                         <img src="images/logoPM.png" alt="logo" style="max-width: 278px; max-height: 218px;">
 
@@ -64,7 +64,7 @@ if(isset($_SESSION['usuario'])){
                   <ul class="nav navbar-nav navbar-right">
                         <li><a href="#HOME" class="nav-item">INICIO</a></li>
                         <li><a href="#about" class="nav-item">ACERCA DE NOSOTROS</a></li>
-                        <li><a href="#contact-us" class="nav-item">CONTACTO</a></li>
+                        
                   </ul>  
                 </div><!-- /.navbar-collapse -->
               </div>
@@ -89,8 +89,8 @@ if(isset($_SESSION['usuario'])){
                     <div class="row">
                     <div class="col-md-8 wow bounceIn">
                         <div class="logoPM header-text">
-                            <h1>Primmat</h1>
-                            <p>Quieres aprender Matemáticas?</p>
+                            <h1><a href="index.php">Primmat</a></h1>
+                            <p>¿Quieres aprender Matemáticas?</p>
                         </div>
                         <div class="header-btns">
                           <a href="#about">
@@ -117,7 +117,7 @@ if(isset($_SESSION['usuario'])){
                                     <a class="btn btn-primary btn-verde btn-3x" type="button" data-toggle="modal" data-target="#ventanaModal">Registrarse
                                         <span> <i class="fa fa-angle-double-right"></i></span>
                                     </a>
-                                </div>
+                            </div>
                          </form>
                          
                        </div>
@@ -138,8 +138,8 @@ if(isset($_SESSION['usuario'])){
               <div class="container">
                   <div class="row">
                       <div class="col-md-12 wow bounceIn">
-                          <h2 class="section-title">About Biking</h2>
-                          <p class="under-heading">Take A Look at some Features</p>
+                          <h2 class="section-title">Sobre Nosostros</h2>
+                          <p class="under-heading">Plataforma Educativa para Matemática</p>
                       </div>
                   </div>
               </div>
@@ -244,58 +244,7 @@ if(isset($_SESSION['usuario'])){
             </div>
         </section>
             
-        <section id="contact-us">
-            <div class="contact-us">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 wow bounceInDown">
-                            <h2 class="section-title">Leave Your Feedback</h2>
-                            <p class="under-heading">Feel Free to text us</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="section-wrapper">
-                    <div class="container">
-                        <form role="form">
-                            <div class="row">
-                            <div class="col-md-6 wow bounceInLeft">
-                                
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Your Name" class="form-control input-lg">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Your E - Mail" class="form-control input-lg">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Subjet" class="form-control input-lg">
-                                    </div> 
-                            </div>
-                            <div class="col-md-6 wow bounceInRight">
-                               <div class="form-group">
-                                <textarea placeholder="Your Message" class="form-control "></textarea>
-                               </div>
-                               <button class="btn btn-primary btn-block input-lg">SEND MESSAGE</button>
-                            </div>
-                        </div>
-                        </form>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="social-icons wow slideInDown">
-                                    <ul class="list-unstyled">
-                                        <li><a href="#"><i class="fa fa-facebook fa-3x"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter fa-3x"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus fa-3x"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram fa-3x"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
 
         <!-- end modal -->
         

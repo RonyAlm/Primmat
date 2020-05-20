@@ -518,11 +518,15 @@ p {
    text-align: center;
 }
 
-.logoPM h1{
+.logoPM h1 a{
+    text-decoration: none;
     font-family: 'snapITCFuenteP';
     color: red;
     border: white;
-    text-shadow: 1px 2px 2px rgb(14, 12, 12);
+    text-shadow: 0px 2px 1px #333333;
+}
+.logoPM h1 a:hover{
+    text-shadow: 1px 2px 2px #333333, 0px 0px 4px red ;
 }
 .login{
     background-color: rgba(243, 237, 237, 0.89);
