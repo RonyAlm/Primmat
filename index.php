@@ -63,7 +63,7 @@ if(isset($_SESSION['usuario'])){
                 <div class="collapse navbar-collapse" id="loso-navbar-collapse-1">
                   <ul class="nav navbar-nav navbar-right">
                         <li><a href="#HOME" class="nav-item">INICIO</a></li>
-                        <li><a href="#about" class="nav-item">ACERCA DE NOSOTROS</a></li>
+                        <li><a href="about.html" class="nav-item">ACERCA DE NOSOTROS</a></li>
                         
                   </ul>  
                 </div><!-- /.navbar-collapse -->
@@ -93,7 +93,7 @@ if(isset($_SESSION['usuario'])){
                             <p>¿Quieres aprender Matemáticas?</p>
                         </div>
                         <div class="header-btns">
-                          <a href="#about">
+                          <a href="about.html">
                               <i class="fa fa-angle-down wow bounceInUp"></i>
                           </a>
                         
@@ -130,52 +130,7 @@ if(isset($_SESSION['usuario'])){
            </div>
        </header>
 
-       <!--SECCION ACERCA DE NOSOTROS-->
-
-       <section id="about">
-          
-           <div class="section-about">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-md-12 wow bounceIn">
-                          <h2 class="section-title">Sobre Nosostros</h2>
-                          <p class="under-heading">Plataforma Educativa para Matemática</p>
-                      </div>
-                  </div>
-              </div>
-               <div class="section-wrapper">
-                   <div class="container">
-               <div class="row">
-                   <div class="col-md-4 wow bounceInDown">
-                       
-                           <a href="#"><i class="fa fa-user fa-5x square"></i></a>
-                           <h3 class="heading">Performers</h3>
-                           <p class="col-caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas delectus excepturi non modi quo iusto aut in nisi, esse provident!</p>
-                   </div>
-                       
-                    <div class="col-md-4 wow bounceInDown">
-                       
-                           <a href="#"><i class="fa fa-bicycle fa-5x"></i></a>
-                           <h3 class="heading">Sport</h3>
-                           <p class="col-caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas delectus excepturi non modi quo iusto aut in nisi, esse provident!</p>
-                           
-                    </div>
-                      
-                    <div class="col-md-4 wow bounceInRight">
-                       
-                           <a href="#"><i class="fa fa-location-arrow fa-5x"></i></a>
-                           <h3 class="heading">Campaign</h3>
-                           <p class="col-caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas delectus excepturi non modi quo iusto aut in nisi, esse provident!</p>
-                       
-                    </div>
-               </div>
-           </div>
-               </div>
-           </div>
-           
-       </section>
-
-        <!--end of about section-->
+       
 
         <!--MODAL REGISTROS-->
 

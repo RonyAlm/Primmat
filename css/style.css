@@ -43,7 +43,8 @@ p {
     
 }
 .navbar-default .navbar-nav > li > a:hover {
-    color: #129CF3;
+    color: white;
+    background-color: red;
 }
 .navbar-default .navbar-nav > li > a:focus {
     color: #B5B5B5;
@@ -60,8 +61,8 @@ p {
 .navbar-default .navbar-nav > .active>a, 
 .navbar-default .navbar-nav > .active>a:hover,
 .navbar-default .navbar-nav > .active>a:focus {
-    background-color: black;
-    color: #129CF3;
+    background-color: red;
+    color: white;
 } 
 
 
